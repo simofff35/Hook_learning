@@ -1,21 +1,32 @@
 import React from "react";
 
 function App() {
-  let [count, setcount] = React.useState(0);
+  let [time, setTime] = React.useState(
+    new Date().toLocaleTimeString([], {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hourCycle: "h23",
+    })
+  );
 
-  function increase() {
-    setcount(count * 142);
-  }
-
-  function decease() {
-    setcount(count - 1);
+  function showTime() {
+    setTime(
+      new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hourCycle: "h23",
+      })
+    );
   }
 
   return (
     <div className="container">
-      <h1>{count}</h1>
-      <button onClick={increase}>+</button>
-      <button onClick={decease}>-</button>
+      <h1>{time}</h1>
+      <button onClick={showTime}>Get Time</button>
     </div>
   );
 }
